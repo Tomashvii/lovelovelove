@@ -501,20 +501,20 @@
     margin: 2px 0;
   }
   .btn-link-yt{
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #E85D5D;
-    color: #fff;
-    font-family: 'Baloo 2', sans-serif;
-    font-size: .82rem;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 6px 16px;
-    border-radius: 999px;
-    box-shadow: 0 3px 8px rgba(232,93,93,.25);
-    transition: transform .18s ease, filter .18s ease;
-  }
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #E85D5D;
+  color: #fff;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 12px 26px;
+  border-radius: 999px;
+  box-shadow: 0 4px 0 rgba(0,0,0,.15), 0 6px 14px rgba(232,93,93,.3);
+  transition: transform .18s ease, filter .18s ease;
+}
   .btn-link-yt:hover{
     transform: scale(1.05);
     filter: brightness(1.1);
@@ -579,25 +579,16 @@
 
       <div class="caja-video-intro">
         <p class="texto-video-intro">
-          Preparé este video con muchísimo amor para ti. Quise reunir nuestros momentos más lindos, palabras que salen directo de mi corazón, y también invité a personas que te quieren un montón para que te dejaran sus mejores deseos, mensajes hermosos ¡y también algunas risas y momentos chistosos! jaja.
+          Preparé este video con muchísimo amor para ti. Quise reunir nuestros momentos más lindos, palabras que salen directo de mi corazón, y también invité a personas que te quieren un montón para que te dejaran sus mejores deseos, mensajes hermosos y odio repulsivo.
         </p>
         <div class="destacado-video">
           🍿 Ponte cómoda, sube el volumen y dale play a tu sorpresa...
         </div>
       </div>
 
-      <div class="video-container">
-        <iframe 
-          id="videoYoutube"
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" 
-          title="Video de cumpleaños para ti" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen>
-        </iframe>
-      </div>
 
       <div class="video-enlaces">
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" class="btn-link-yt" id="linkExternoYoutube">
+        <a href="https://www.youtube.com/watch?v=mFcfJK_Bg8A" target="_blank" rel="noopener noreferrer" class="btn-link-yt" id="linkExternoYoutube">
           ▶ Abrir video en YouTube ↗
         </a>
       </div>
@@ -851,24 +842,20 @@
 
   actualizarBloqueos();
 
-  const ENLACE_O_ID_YOUTUBE = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+  const ENLACE_O_ID_YOUTUBE = "https://youtu.be/mFcfJK_Bg8A";
 
-  function actualizarVideoYoutube(){
-    const iframe = document.getElementById('videoYoutube');
-    const linkExterno = document.getElementById('linkExternoYoutube');
-    if (!iframe) return;
+function actualizarVideoYoutube(){
+  const linkExterno = document.getElementById('linkExternoYoutube');
+  if (!linkExterno) return;
 
-    let id = ENLACE_O_ID_YOUTUBE.trim();
-    const match = id.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
-    if (match && match[1]) {
-      id = match[1];
-    }
-
-    iframe.src = `https://www.youtube.com/embed/${id}?rel=0`;
-    if (linkExterno) {
-      linkExterno.href = `https://www.youtube.com/watch?v=${id}`;
-    }
+  let id = ENLACE_O_ID_YOUTUBE.trim();
+  const match = id.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+  if (match && match[1]) {
+    id = match[1];
   }
+
+  linkExterno.href = `https://www.youtube.com/watch?v=${id}`;
+}
   actualizarVideoYoutube();
 
   const tarjeta = document.querySelector('.card');
